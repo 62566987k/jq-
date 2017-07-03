@@ -194,9 +194,6 @@ function pageGroup(pageNum,pageCounts){
         break;
     }
 }
-
-
-	//================================股份减持计划与减持进展=================================
 var $search_ht_JCJZ = $(".search_ht_JCJZ");
        if($search_ht_JCJZ.length > 0 ){ 	   
             var searchWord= GetQueryString("webswd") || "";
