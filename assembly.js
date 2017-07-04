@@ -46,7 +46,7 @@ Array.prototype.jsonpin= function(data){
 						}
 						allhtmlone+="</tr>";
 			}
-			return allhtmlone
+			return allhtmlone	
 		}
 /*array split joint <td> function end*/
 
@@ -55,12 +55,12 @@ var html= function (allstring,thisj,jsoni){
 		var allhtml=""
 		if(typeof thisj === "object" ){
 			if(thisj.div && thisj.a){
-					allhtml="<div class='{0}'><a class='{1}' target='{2}'>{3}</a></div>".format(thisj.divclass||"",thisj.aclass||"",thisj.target||"",jsoni[thisj.this]||"");
+	     allhtml="<div class='{0}'><a class='{1}' target='{2}'>{3}</a></div>".format(thisj.divclass||"",thisj.aclass||"",thisj.target||"",jsoni[thisj.this]||"");
 			}else{
 				if(thisj.div){
 					allhtml ="<div class='{0}'>{1}</div>".format(thisj.divclass||"",ccc[thisj.this]||"");
 				}else if(thisj.a){
-					allhtml ="<a class='{0}' href='{1}' target='{2}'>{3}</a></div>".format(thisj.aclass||"",thisj.href||"",thisj.target||"",jsoni[thisj.this]||"");
+		  allhtml ="<a class='{0}' href='{1}' target='{2}'>{3}</a></div>".format(thisj.aclass||"",thisj.href||"",thisj.target||"",jsoni[thisj.this]||"");
 				}
 			}
 		}else{	
@@ -120,7 +120,9 @@ var plugObject = [
     "href":"www.baidu.com",//set up a href
     "target":"_black",		//set up a open mode 
     "aclass":"blue"			//set up a open className 	
-	},
+	}
+
+/*	,
 	"A_gpksh_suf_data",
 	"A_jtsyl_data",
 	"180_gpksspre_data",
@@ -131,7 +133,7 @@ var plugObject = [
 	"380_jtsyl_data",
 	"Other_gpksspre_data",
 	"Other_gpksssuf_data",
-	"Other_jtsyl_data"
+	"Other_jtsyl_data"*/
 	]
 	/* plug-in object end*/
 
