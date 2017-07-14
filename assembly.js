@@ -27,11 +27,46 @@ Array.prototype.htmlheader = function(Label,tr){
 /*plug-in header object function end*/
 
 
+/*found function*/
+function ViewControlle(){
+
+}
+/*found function end*/
+
+
+/*append ViewControlle function prototype function*/
+ViewControlle.prototype ={
+	htmlone:function(allstring,thisj,jsoni){
+		var allhtml=""
+		if(typeof thisj === "object" ){
+			if(thisj.div && thisj.a){
+	     allhtml="<div class='{0}'><a class='{1}' target='{2}'>{3}</a></div>".format(thisj.divclass||"",thisj.aclass||"",thisj.target||"",jsoni[thisj.this]||"");
+			}else{
+				if(thisj.div){
+					allhtml ="<div class='{0}'>{1}</div>".format(thisj.divclass||"",ccc[thisj.this]||"");
+				}else if(thisj.a){
+		  allhtml ="<a class='{0}' href='{1}' target='{2}'>{3}</a></div>".format(thisj.aclass||"",thisj.href||"",thisj.target||"",jsoni[thisj.this]||"");
+				}
+			}
+		}else{	
+			allhtml= allstring
+
+		}
+	return 	allhtml 
+	},
+	htmltwo:function(allstring,thisj,jsoni){
+		console.log(allstring)
+		console.log(thisj)
+		console.log(jsoni)
+	}
+}
+/*append ViewControlle function prototype function end*/	
+var ViewControlleStart = new ViewControlle()
 /*
   array split joint <td> function start
 	Array init data === ajaxdata annotation:jsonStr
 */
-Array.prototype.jsonpin= function(data){
+Array.prototype.jsonpin= function(data,html){
 			var json = data
 			var jsonlength = data.length
 			var thislength = this.length
@@ -42,7 +77,7 @@ Array.prototype.jsonpin= function(data){
 					 		var jsoni = json[i]
 					 		var thisj = this[j]
 					 		var allstring = json[i][thisj]
-					 		allhtmlone +="<td>{0}</td>".format(html(allstring,thisj,jsoni))
+					 		allhtmlone +="<td>{0}</td>".format(ViewControlleStart[html](allstring,thisj,jsoni))
 						}
 						allhtmlone+="</tr>";
 			}
@@ -50,7 +85,7 @@ Array.prototype.jsonpin= function(data){
 		}
 /*array split joint <td> function end*/
 
-/*judge split joint <td> within html function start*/
+/*judge split joint <td> within html function start
 var html= function (allstring,thisj,jsoni){
 		var allhtml=""
 		if(typeof thisj === "object" ){
@@ -69,7 +104,7 @@ var html= function (allstring,thisj,jsoni){
 		}
 	return 	allhtml 
 }
-/*judge split joint <td> within html function end*/
+judge split joint <td> within html function end*/
 
 
 /*start json object*/
@@ -143,7 +178,7 @@ var plugObject = [
 
 
 /*invoking start*/
-console.log(plugObject.jsonpin(jsonStr))
+console.log(plugObject.jsonpin(jsonStr,"htmlone"))
 /*invoking end*/
 
 
